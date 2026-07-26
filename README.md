@@ -1,19 +1,16 @@
-# Touch Synth V0.2
+# Touch Synth V0.3
 
-安卓触控合成器原型。
+可演奏版安卓触控合成器。
 
 ## 本版功能
 
-- 正弦波、锯齿波、方波
-- 完整 ADSR：Attack / Decay / Sustain / Release
-- 低通滤波器 Cutoff
-- 音量控制
-- C4-C5 八个触控音符
-- 修复状态栏遮挡
-- 参数页面可上下滚动
-- 自定义应用图标
+- 8 音复音，可弹和弦
+- 标准黑白琴键
+- 八度切换
+- 演奏页 / 音色页
+- 6 个内置预设
+- Bright 宏控制
+- 完整 ADSR 与低通滤波
 - GitHub Actions 自动构建 APK
 
-## GitHub 构建
-
-上传到仓库根目录后，Actions 会自动运行。成功后进入运行记录底部的 Artifacts，下载 `TouchSynthV02-debug-apk`。
+构建成功后下载 `TouchSynthV03-debug-apk`。
