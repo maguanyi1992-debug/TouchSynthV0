@@ -108,55 +108,61 @@ private fun TouchSynthScreen() {
         ) {
             WaveButton(
                 text = "正弦",
-                selected = waveform == SynthEngine.Waveform.SINE
-            ) {
-                waveform = SynthEngine.Waveform.SINE
-                engine.setWaveform(waveform)
-            }
+                selected = waveform == SynthEngine.Waveform.SINE,
+                onClick = {
+                    waveform = SynthEngine.Waveform.SINE
+                    engine.setWaveform(waveform)
+                }
+            )
 
             WaveButton(
                 text = "锯齿",
-                selected = waveform == SynthEngine.Waveform.SAW
-            ) {
-                waveform = SynthEngine.Waveform.SAW
-                engine.setWaveform(waveform)
-            }
+                selected = waveform == SynthEngine.Waveform.SAW,
+                onClick = {
+                    waveform = SynthEngine.Waveform.SAW
+                    engine.setWaveform(waveform)
+                }
+            )
 
             WaveButton(
                 text = "方波",
-                selected = waveform == SynthEngine.Waveform.SQUARE
-            ) {
-                waveform = SynthEngine.Waveform.SQUARE
-                engine.setWaveform(waveform)
-            }
+                selected = waveform == SynthEngine.Waveform.SQUARE,
+                onClick = {
+                    waveform = SynthEngine.Waveform.SQUARE
+                    engine.setWaveform(waveform)
+                }
+            )
         }
 
         ParameterSlider(
             label = "音量",
             value = volume,
-            range = 0.05f..0.60f
-        ) {
-            volume = it
-            engine.setVolume(it)
-        }
+            range = 0.05f..0.60f,
+            onValueChange = {
+                volume = it
+                engine.setVolume(it)
+            }
+        )
 
         ParameterSlider(
             label = "Attack",
             value = attack,
-            range = 0.005f..1.5f
-        ) {
-            attack = it
-            engine.setAttack(it)
-        }
+            range = 0.005f..1.5f,
+            onValueChange = {
+                attack = it
+                engine.setAttack(it)
+            }
+        )
 
         ParameterSlider(
             label = "Release",
             value = release,
-            range = 0.03f..3f
-        ) {
-            release = it
-            engine.setRelease(it)
-        }
+            range = 0.03f..3f,
+            onValueChange = {
+                release = it
+                engine.setRelease(it)
+            }
+        )
 
         Spacer(
             modifier = Modifier.height(4.dp)
@@ -172,74 +178,106 @@ private fun TouchSynthScreen() {
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            NotePad("C4") {
-                activeNote = "C4"
-                engine.noteOn(60)
-            } onRelease@{
-                activeNote = null
-                engine.noteOff()
-            }
+            NotePad(
+                label = "C4",
+                onPress = {
+                    activeNote = "C4"
+                    engine.noteOn(60)
+                },
+                onRelease = {
+                    activeNote = null
+                    engine.noteOff()
+                }
+            )
 
-            NotePad("D4") {
-                activeNote = "D4"
-                engine.noteOn(62)
-            } onRelease@{
-                activeNote = null
-                engine.noteOff()
-            }
+            NotePad(
+                label = "D4",
+                onPress = {
+                    activeNote = "D4"
+                    engine.noteOn(62)
+                },
+                onRelease = {
+                    activeNote = null
+                    engine.noteOff()
+                }
+            )
 
-            NotePad("E4") {
-                activeNote = "E4"
-                engine.noteOn(64)
-            } onRelease@{
-                activeNote = null
-                engine.noteOff()
-            }
+            NotePad(
+                label = "E4",
+                onPress = {
+                    activeNote = "E4"
+                    engine.noteOn(64)
+                },
+                onRelease = {
+                    activeNote = null
+                    engine.noteOff()
+                }
+            )
 
-            NotePad("F4") {
-                activeNote = "F4"
-                engine.noteOn(65)
-            } onRelease@{
-                activeNote = null
-                engine.noteOff()
-            }
+            NotePad(
+                label = "F4",
+                onPress = {
+                    activeNote = "F4"
+                    engine.noteOn(65)
+                },
+                onRelease = {
+                    activeNote = null
+                    engine.noteOff()
+                }
+            )
         }
 
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            NotePad("G4") {
-                activeNote = "G4"
-                engine.noteOn(67)
-            } onRelease@{
-                activeNote = null
-                engine.noteOff()
-            }
+            NotePad(
+                label = "G4",
+                onPress = {
+                    activeNote = "G4"
+                    engine.noteOn(67)
+                },
+                onRelease = {
+                    activeNote = null
+                    engine.noteOff()
+                }
+            )
 
-            NotePad("A4") {
-                activeNote = "A4"
-                engine.noteOn(69)
-            } onRelease@{
-                activeNote = null
-                engine.noteOff()
-            }
+            NotePad(
+                label = "A4",
+                onPress = {
+                    activeNote = "A4"
+                    engine.noteOn(69)
+                },
+                onRelease = {
+                    activeNote = null
+                    engine.noteOff()
+                }
+            )
 
-            NotePad("B4") {
-                activeNote = "B4"
-                engine.noteOn(71)
-            } onRelease@{
-                activeNote = null
-                engine.noteOff()
-            }
+            NotePad(
+                label = "B4",
+                onPress = {
+                    activeNote = "B4"
+                    engine.noteOn(71)
+                },
+                onRelease = {
+                    activeNote = null
+                    engine.noteOff()
+                }
+            )
 
-            NotePad("C5") {
-                activeNote = "C5"
-                engine.noteOn(72)
-            } onRelease@{
-                activeNote = null
-                engine.noteOff()
-            }
+            NotePad(
+                label = "C5",
+                onPress = {
+                    activeNote = "C5"
+                    engine.noteOn(72)
+                },
+                onRelease = {
+                    activeNote = null
+                    engine.noteOff()
+                }
+            )
         }
     }
 }
