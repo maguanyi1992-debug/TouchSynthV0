@@ -57,7 +57,7 @@ private fun notes(p:ChordPad):List<Int>{val base=12*(p.octave+1)+p.root;return t
   }
  }
 }
-@Composable private fun Tab(t:String,s:Boolean,on:()->Unit){Button(onClick=on,modifier=Modifier.weight(1f),colors=ButtonDefaults.buttonColors(if(s)Color(0xFF7657FF)else Color(0xFF292D36))){Text(t)}}
+@Composable private fun RowScope.Tab(t:String,s:Boolean,on:()->Unit){Button(onClick=on,modifier=Modifier.weight(1f),colors=ButtonDefaults.buttonColors(if(s)Color(0xFF7657FF)else Color(0xFF292D36))){Text(t)}}
 
 @Composable private fun Play(engine:SynthEngine,pads:List<ChordPad>,latch:Boolean,latched:Set<Int>,onLatch:(Boolean)->Unit,onLatched:(Set<Int>)->Unit,preset:SynthEngine.Preset,onPreset:(SynthEngine.Preset)->Unit){
  Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(12.dp),verticalArrangement=Arrangement.spacedBy(10.dp)){
@@ -78,7 +78,7 @@ private fun notes(p:ChordPad):List<Int>{val base=12*(p.octave+1)+p.root;return t
  Text(text="基础八度",color=Color.White);Row(horizontalArrangement=Arrangement.spacedBy(8.dp)){(2..5).forEach{o->Button(onClick={onPads(pads.toMutableList().also{it[selected]=p.copy(octave=o)})},colors=ButtonDefaults.buttonColors(if(o==p.octave)Color(0xFF7657FF)else Color(0xFF292D36))){Text("$o")}}}
  Text(text="实际 MIDI 音符：${notes(p).joinToString()}",color=Color(0xFFADB4C4),fontSize=12.sp)
  }}
-@Composable private fun ChoiceGrid(items:List<String>,selected:Int,columns:Int=6,on:(Int)->Unit){items.chunked(columns).forEach{row->Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(5.dp)){row.forEach{s->val i=items.indexOf(s);Button(onClick={on(i)},modifier=Modifier.weight(1f),contentPadding=PaddingValues(3.dp),colors=ButtonDefaults.buttonColors(if(i==selected)Color(0xFF7657FF)else Color(0xFF292D36))){Text(s,fontSize=10.sp)}}repeat(columns-row.size){Spacer(Modifier.weight(1f))}}}}
+@Composable private fun ChoiceGrid(items:List<String>,selected:Int,columns:Int=6,on:(Int)->Unit){items.chunked(columns).forEach{row->Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(5.dp)){row.forEach{s->val i=items.indexOf(s);Button(onClick={on(i)},modifier=Modifier.weight(1f),contentPadding=PaddingValues(3.dp),colors=ButtonDefaults.buttonColors(if(i==selected)Color(0xFF7657FF)else Color(0xFF292D36))){Text(s,fontSize=10.sp)}}for(i in 0 until (columns-row.size)){Spacer(Modifier.weight(1f))}}}}
 
 @Composable private fun Sound(engine:SynthEngine,cutoff:Float,detune:Float,mix:Float,res:Float,attack:Float,release:Float,chorus:Float,onCut:(Float)->Unit,onDet:(Float)->Unit,onMix:(Float)->Unit,onRes:(Float)->Unit,onAtt:(Float)->Unit,onRel:(Float)->Unit,onCho:(Float)->Unit){Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(12.dp),verticalArrangement=Arrangement.spacedBy(8.dp)){
  Text(text="双振荡器 + PolyBLEP + 共振滤波 + Chorus",color=Color.White,fontWeight=FontWeight.Bold)
