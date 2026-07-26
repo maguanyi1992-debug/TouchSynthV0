@@ -12,8 +12,8 @@ android {
         applicationId = "com.example.touchsynth"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1"
+        versionCode = 2
+        versionName = "0.2"
     }
 
     buildFeatures {
@@ -34,7 +34,6 @@ kotlin {
 
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2026.06.00")
-
     implementation(composeBom)
     androidTestImplementation(composeBom)
 
@@ -43,6 +42,5 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
-
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
