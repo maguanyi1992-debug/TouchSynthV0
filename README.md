@@ -1,16 +1,8 @@
-# Touch Synth V0.3
+# Touch Synth V0.4
 
-可演奏版安卓触控合成器。
+V0.4 focuses on three areas:
+- Lower latency AudioTrack engine with smaller buffers, urgent audio thread and block-level command processing.
+- Better tone: dual oscillators, PolyBLEP saw/square, detune, resonant filter and stereo chorus.
+- Eight editable chord pads with 24 chord types, latch mode and 24-voice polyphony.
 
-## 本版功能
-
-- 8 音复音，可弹和弦
-- 标准黑白琴键
-- 八度切换
-- 演奏页 / 音色页
-- 6 个内置预设
-- Bright 宏控制
-- 完整 ADSR 与低通滤波
-- GitHub Actions 自动构建 APK
-
-构建成功后下载 `TouchSynthV03-debug-apk`。
+Build artifact: `TouchSynthV04-debug-apk`.
